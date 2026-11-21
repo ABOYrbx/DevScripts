@@ -1,0 +1,45 @@
+{
+  "name": "Music Assistant",
+  "slug": "music-assistant",
+  "categories": [13, 16],
+  "date_created": "2026-11-21",
+  "type": "ct",
+  "updateable": true,
+  "privileged": false,
+  "interface_port": 8095,
+  "documentation": "https://music-assistant.io/installation/",
+  "website": "https://music-assistant.io/",
+  "repository": "https://github.com/music-assistant/server",
+  "architectures": ["amd64"],
+  "platforms": ["pve"],
+  "logo": "https://cdn.jsdelivr.net/gh/selfhst/icons@main/webp/music-assistant.webp",
+  "description": "Music Assistant is a media library manager that combines streaming services and local music into one library and streams it to AirPlay, Chromecast, Sonos, DLNA and Squeezebox players. It pairs with Home Assistant and is controlled through its own web interface or the Home Assistant integration.",
+  "install_methods": [
+    {
+      "type": "default",
+      "script": "ct/music-assistant.sh",
+      "config_path": "/opt/music-assistant/data",
+      "resources": {
+        "cpu": 2,
+        "ram": 2048,
+        "hdd": 16,
+        "os": "Debian",
+        "version": "13"
+      }
+    }
+  ],
+  "default_credentials": {
+    "username": null,
+    "password": null
+  },
+  "notes": [
+    {
+      "text": "Music Assistant, Home Assistant and all players must be on the same flat network; with host networking it cannot discover players across VLANs.",
+      "type": "info"
+    },
+    {
+      "text": "Copy local music into /opt/music-assistant/music; it is mounted read-only into the container as /media.",
+      "type": "info"
+    }
+  ]
+}
